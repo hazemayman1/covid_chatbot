@@ -1,32 +1,18 @@
-![App Brewery Banner](https://github.com/londonappbrewery/Images/blob/master/AppBreweryBanner.png)
-
-
-# Flash Chat ⚡️
+# DiCorona? Covid Chatbot
 
 ## Our Goal
 
-The objective of this tutorial is to learn how to incorporate Firebase into our Flutter apps. We'll be using Firebase Cloud Firestore as well as the Firebase authentication package to equip our app with a cloud-based NoSQL database and secure authentication methods. 
+We aim to create a companion app that will assist COVID-19 patients and people who
+are worried about the issue, the app is composed of 3 parts, an assistant chatbot,
+a CT scan analyzer and a lab results analyzer.
+Utilizing different methods of AI in NLP and image processings, this app aims to
+aid people who have troubles visiting doctors and hospitals.
 
+## The application
 
-## What you will create
+The app is built upon the Flash Chat app provided in Angela Yu's course on Udemy, we
+followed through with her steps and added our features by substituting other's messages with
+the bot's messages. We will build new screens from scratch for image scanning and manual inputs
+for the results analyzer.
 
-We’re going to build a modern messaging app where users can sign up and log in to chat.
-
-![Finished App](https://github.com/londonappbrewery/Images/blob/master/flash_chat_flutter_demo.gif)
-
-## What you will learn
-
-- How to incorporate Firebase into your Flutter projects.
-- How to use Firebase authentication to register and sign in users.
-- How to create beautiful animations using the Flutter Hero widget.
-- How to create custom aniamtions using Flutter's animation controller. 
-- Learn all about mixins and how they differ from superclasses.
-- Learn about Streams and how they work.
-- Learn to use ListViews to build scrolling views.
-- How to use Firebase Cloud Firestore to store and retrieve data on the fly.
-
-
-
->This is a companion project to The App Brewery's Complete Flutter Development Bootcamp, check out the full course at [www.appbrewery.co](https://www.appbrewery.co/)
-
-![End Banner](https://github.com/londonappbrewery/Images/blob/master/readme-end-banner.png)
+![Current Version](https://imgur.com/yspgG1l)
