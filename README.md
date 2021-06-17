@@ -15,4 +15,4 @@ followed through with her steps and added our features by substituting other's m
 the bot's messages. We will build new screens from scratch for image scanning and manual inputs
 for the results analyzer.
 
-![Current Version](https://imgur.com/yspgG1l)
+![Current Version](https://github.com/hazemayman1/covid-chatbot/blob/master/images/preview.gif)
