@@ -1,8 +1,10 @@
 import 'package:flash_chat/constants.dart';
+import 'package:flash_chat/screens/analysis_screen.dart';
 import 'package:flash_chat/screens/chat_screen.dart';
 import 'package:flash_chat/screens/login_screen.dart';
 import 'package:flash_chat/screens/registration_screen.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flash_chat/screens/scan_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/components/rounded_button.dart';
 
@@ -91,12 +93,12 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             //   },
             // ),
             RoundedButton(
-              title: 'lab results analysis'.toUpperCase(),
+              title: 'chest image scan'.toUpperCase(),
               color: kPrimaryColor,
               onPressed: () {
                 //currently just navigates to login screen
                 //to be implemented lated
-                Navigator.pushNamed(context, LoginScreen.id);
+                Navigator.pushNamed(context, ScanScreen.id);
               },
             ),
             RoundedButton(
@@ -107,12 +109,12 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               },
             ),
             RoundedButton(
-              title: 'Chest image scan'.toUpperCase(),
+              title: 'lab results analysis'.toUpperCase(),
               color: kPrimaryColor,
               onPressed: () {
                 //currently just navigates to registration screen
                 //to be implemented lated
-                Navigator.pushNamed(context, RegistrationScreen.id);
+                Navigator.pushNamed(context, AnalysisScreen.id);
               },
             ),
           ],

@@ -9,6 +9,12 @@ const kSendButtonTextStyle = TextStyle(
   fontSize: 18.0,
 );
 
+const kInputDecoration = InputDecoration(
+  filled: true,
+  fillColor: kSecondaryColor,
+  hintText: 'Enter your age',
+);
+
 const kMessageTextFieldDecoration = InputDecoration(
   fillColor: kSecondaryColor,
   filled: true,
