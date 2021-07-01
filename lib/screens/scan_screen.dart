@@ -1,8 +1,13 @@
+import 'dart:convert';
+
 import 'package:flash_chat/components/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/constants.dart';
+import 'package:http_parser/http_parser.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 
 class ScanScreen extends StatefulWidget {
   static const String id = "scan_screen";
@@ -27,11 +32,11 @@ class _ScanScreenState extends State<ScanScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: null,
-        actions: <Widget>[
-          IconButton(icon: Icon(Icons.close), onPressed: () {}),
-        ],
-        title: Text('Җ Chest Scanner'),
-        backgroundColor: kPrimaryColor,
+        title: Text(
+          'Җ Chest Scanner',
+          style: TextStyle(color: kPrimaryColor, fontWeight: FontWeight.w400),
+        ),
+        backgroundColor: kSecondaryColor,
       ),
       body: Scaffold(
         backgroundColor: kPrimaryColor,
@@ -57,9 +62,20 @@ class _ScanScreenState extends State<ScanScreen> {
                 setState(() {
                   uploaded = Image.file(File(_imageFile.path));
                 });
+
+                // http.MultipartRequest request = http.MultipartRequest('POST', Uri.parse(url));
+
+                //   request.files.add(
+                //     await http.MultipartFile.fromPath(
+                //       'images',
+                //       File('kitten1.jpg').path,
+                //       contentType: MediaType('application', 'jpeg'),
+                //     ),
+                //   );
               },
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.8,
+                height: MediaQuery.of(context).size.width * 0.8,
                 child: Center(
                   child: uploaded,
                 ),
@@ -68,11 +84,27 @@ class _ScanScreenState extends State<ScanScreen> {
             Center(
               child: RoundedButton(
                 minWidth: MediaQuery.of(context).size.width * 0.8,
-                color: Colors.grey[700],
+                color: kSecondaryColor,
                 onPressed: () async {
+                  var request =
+                      new http.MultipartRequest("POST", Uri.parse('$url/scan'));
+                  request.files.add(await http.MultipartFile.fromPath(
+                    'images',
+                    _imageFile.path,
+                    contentType: new MediaType('application', 'jpeg'),
+                  ));
+
+                  var streamedResponse = await request.send();
+                  var response =
+                      await http.Response.fromStream(streamedResponse);
+                  var result = json.decode(response.body)["result"];
+
                   setState(() {
-                    classification =
-                        "Your results show that you probably have covid";
+                    result == 0
+                        ? classification =
+                            "Your results show that you probably don't have covid"
+                        : classification =
+                            "Your results show that you probably have covid";
                   });
                 },
                 title: 'Upload',

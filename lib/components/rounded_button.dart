@@ -15,11 +15,11 @@ class RoundedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.0),
+      padding: EdgeInsets.symmetric(vertical: 5.0),
       child: Material(
         elevation: 10.0,
         color: color,
-        borderRadius: BorderRadius.circular(3.0),
+        borderRadius: BorderRadius.circular(15.0),
         child: MaterialButton(
           onPressed: onPressed,
           minWidth: minWidth,

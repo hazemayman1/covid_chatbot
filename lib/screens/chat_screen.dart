@@ -84,7 +84,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
   Future<dynamic> handleMessage(String question) async {
     question = question.replaceAll(' ', '_');
-    Response response = await http.get('http://10.0.2.2:5000/$question');
+    Response response = await http.get('$url/chatbot/$question');
     return json.decode(response.body);
   }
 
@@ -115,8 +115,11 @@ class _ChatScreenState extends State<ChatScreen> {
                 // Navigator.pop(context);
               }),
         ],
-        title: Text('⚡️Chat'),
-        backgroundColor: kPrimaryColor,
+        title: Text(
+          '⚡️Chat',
+          style: TextStyle(color: kPrimaryColor),
+        ),
+        backgroundColor: kSecondaryColor,
       ),
       body: SafeArea(
         child: Column(
@@ -250,7 +253,7 @@ class MessageBubble extends StatelessWidget {
               child: Text(
                 messageText,
                 style: TextStyle(
-                  color: Colors.black,
+                  color: isSender ? Colors.black : kPrimaryColor,
                   fontSize: 15.0,
                 ),
               ),

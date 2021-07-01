@@ -1,28 +1,24 @@
 import 'package:flutter/material.dart';
 
-const kPrimaryColor = Color(0xFF333A32);
-const kSecondaryColor = Color(0xFFA2A2A2);
+const kPrimaryColor = Color(0xFFF5f5f5);
+const kSecondaryColor = Color(0xFF3f4685);
 
 const kSendButtonTextStyle = TextStyle(
-  color: Colors.white,
+  color: kSecondaryColor,
   fontWeight: FontWeight.w500,
   fontSize: 18.0,
 );
 
-const kInputDecoration = InputDecoration(
-  filled: true,
-  fillColor: kSecondaryColor,
-  hintText: 'Enter your age',
-);
+const url = "http://10.0.2.2:5000";
 
 const kMessageTextFieldDecoration = InputDecoration(
-  fillColor: kSecondaryColor,
+  fillColor: kPrimaryColor,
   filled: true,
   contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
   hintText: 'Type your message here...',
   border: InputBorder.none,
   hintStyle: TextStyle(
-    color: Colors.white,
+    color: Colors.black,
   ),
 );
 

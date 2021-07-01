@@ -48,74 +48,51 @@ class _WelcomeScreenState extends State<WelcomeScreen>
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Hero(
                   tag: 'logo',
                   child: Container(
-                      child: Image.asset('images/image.png'),
-                      height: 60.0,
-                      padding: EdgeInsets.all(5.0),
-                      margin: const EdgeInsets.only(
-                        right: 5.0,
-                      )),
-                ),
-                AnimatedTextKit(
-                  animatedTexts: [
-                    TypewriterAnimatedText(
-                      'DiCorona..?',
-                      textStyle: const TextStyle(
-                        fontSize: 45.0,
-                        fontWeight: FontWeight.w300,
-                        color: kSecondaryColor,
-                      ),
-                      speed: const Duration(milliseconds: 200),
-                    ),
-                  ],
-                  totalRepeatCount: 1,
+                    child: Image.asset('images/logo2.png'),
+                    height: MediaQuery.of(context).size.width * 0.8,
+                    padding: EdgeInsets.all(5.0),
+                  ),
                 ),
               ],
             ),
             SizedBox(
               height: 48.0,
             ),
-            // RoundedButton(
-            //   title: 'Log in',
-            //   color: Colors.green,
-            //   onPressed: () {
-            //     Navigator.pushNamed(context, LoginScreen.id);
-            //   },
-            // ),
-            // RoundedButton(
-            //   title: 'Register',
-            //   color: Colors.blueAccent,
-            //   onPressed: () {
-            //     Navigator.pushNamed(context, RegistrationScreen.id);
-            //   },
-            // ),
-            RoundedButton(
-              title: 'chest image scan'.toUpperCase(),
-              color: kPrimaryColor,
-              onPressed: () {
-                //currently just navigates to login screen
-                //to be implemented lated
-                Navigator.pushNamed(context, ScanScreen.id);
-              },
-            ),
-            RoundedButton(
-              title: 'chat with our bot'.toUpperCase(),
-              color: kPrimaryColor,
-              onPressed: () {
-                Navigator.pushNamed(context, ChatScreen.id);
-              },
-            ),
-            RoundedButton(
-              title: 'lab results analysis'.toUpperCase(),
-              color: kPrimaryColor,
-              onPressed: () {
-                //currently just navigates to registration screen
-                //to be implemented lated
-                Navigator.pushNamed(context, AnalysisScreen.id);
-              },
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                RoundedButton(
+                  title: 'chest image scan'.toUpperCase(),
+                  color: kSecondaryColor,
+                  onPressed: () {
+                    //currently just navigates to login screen
+                    //to be implemented lated
+                    Navigator.pushNamed(context, ScanScreen.id);
+                  },
+                ),
+                RoundedButton(
+                  title: 'chat with our bot'.toUpperCase(),
+                  color: kSecondaryColor,
+                  onPressed: () {
+                    Navigator.pushNamed(context, ChatScreen.id);
+                  },
+                ),
+                RoundedButton(
+                  title: 'lab results analysis'.toUpperCase(),
+                  color: kSecondaryColor,
+                  onPressed: () {
+                    //currently just navigates to registration screen
+                    //to be implemented lated
+                    Navigator.pushNamed(context, AnalysisScreen.id);
+                  },
+                ),
+              ],
             ),
           ],
         ),
