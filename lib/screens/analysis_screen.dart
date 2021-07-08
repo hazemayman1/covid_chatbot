@@ -15,6 +15,7 @@ class AnalysisScreen extends StatefulWidget {
 class _AnalysisScreenState extends State<AnalysisScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  final String url = "https://decoronalab.herokuapp.com";
   String classification;
 
   var AGE,
@@ -726,6 +727,7 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
                               EO,
                               BA,
                               SUS);
+                          print(respone);
                           if (respone['result'] == 0) {
                             this.setState(() {
                               classification = "You dont have covid";
@@ -741,7 +743,7 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
                     classification != null ? "$classification" : "",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 20,
                     ),
                   ),

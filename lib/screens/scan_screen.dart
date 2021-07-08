@@ -86,8 +86,8 @@ class _ScanScreenState extends State<ScanScreen> {
                 minWidth: MediaQuery.of(context).size.width * 0.8,
                 color: kSecondaryColor,
                 onPressed: () async {
-                  var request =
-                      new http.MultipartRequest("POST", Uri.parse('$url/scan'));
+                  var request = new http.MultipartRequest("POST",
+                      Uri.parse('https://decoronaapi.herokuapp.com/scan'));
                   request.files.add(await http.MultipartFile.fromPath(
                     'images',
                     _imageFile.path,
@@ -97,14 +97,23 @@ class _ScanScreenState extends State<ScanScreen> {
                   var streamedResponse = await request.send();
                   var response =
                       await http.Response.fromStream(streamedResponse);
+                  print(response);
                   var result = json.decode(response.body)["result"];
-
+                  print(result);
                   setState(() {
-                    result == 0
-                        ? classification =
-                            "Your results show that you probably don't have covid"
-                        : classification =
-                            "Your results show that you probably have covid";
+                    if (result == 0) {
+                      classification =
+                          "Good news! Your chest scan looks normal, but still we advise you to consult your doctor";
+                    } else if (result == 1) {
+                      classification =
+                          "Your scan shows that you may have viral pneumonia, consult your doctor ASAP.";
+                    } else if (result == 2) {
+                      classification =
+                          "Your scan shows that you may have COVID-19, consult your doctor ASAP.";
+                    } else if (result == 3) {
+                      classification =
+                          "Cannot detect, please upload a more clear image of your CT scan.";
+                    }
                   });
                 },
                 title: 'Upload',
@@ -114,7 +123,7 @@ class _ScanScreenState extends State<ScanScreen> {
               classification != null ? "$classification" : "",
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontSize: 20,
               ),
             ),

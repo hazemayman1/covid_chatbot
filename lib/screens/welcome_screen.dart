@@ -7,6 +7,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flash_chat/screens/scan_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/components/rounded_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = "welcome_screen";
@@ -18,8 +19,28 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     with SingleTickerProviderStateMixin {
   AnimationController controller;
   Animation animation;
+
+  final _auth = FirebaseAuth.instance;
+  User LoggedInUser;
+
+  void getCurrentUser() async {
+    try {
+      final user = await _auth.currentUser;
+      if (user != null) {
+        LoggedInUser = user;
+      } else if (user == null) {
+        String email = "general@test.com";
+        String password = "123456789";
+        await FirebaseAuth.instance
+            .signInWithEmailAndPassword(email: email, password: password);
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
-  void initState() {
+  Future<void> initState() {
     super.initState();
     controller =
         AnimationController(duration: Duration(seconds: 1), vsync: this);
@@ -29,6 +50,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     controller.addListener(() {
       setState(() {});
     });
+    getCurrentUser();
   }
 
   @override

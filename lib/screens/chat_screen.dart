@@ -18,6 +18,8 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  final String url = "https://decoronachatbot.azurewebsites.net";
+
   // static const _api_key = "5648ffe7fbmshc49a1b8b71db74cp17b2aajsn8ab14ccfbd4a";
   // // Base API url
   // static const String _baseUrl = "covid-19-data.p.rapidapi.com";

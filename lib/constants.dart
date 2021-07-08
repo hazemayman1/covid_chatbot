@@ -9,8 +9,6 @@ const kSendButtonTextStyle = TextStyle(
   fontSize: 18.0,
 );
 
-const url = "http://10.0.2.2:5000";
-
 const kMessageTextFieldDecoration = InputDecoration(
   fillColor: kPrimaryColor,
   filled: true,
