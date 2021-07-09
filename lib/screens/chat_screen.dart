@@ -20,38 +20,7 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   final String url = "https://decoronachatbot.azurewebsites.net";
 
-  // static const _api_key = "5648ffe7fbmshc49a1b8b71db74cp17b2aajsn8ab14ccfbd4a";
-  // // Base API url
-  // static const String _baseUrl = "covid-19-data.p.rapidapi.com";
-  // // Base headers for Response url
-  // static const Map<String, String> _headers = {
-  //   "content-type": "application/json",
-  //   "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-  //   "x-rapidapi-key": _api_key,
-  // };
-
-  // Future<dynamic> getNew({
-  //   @required String endpoint,
-  //   @required Map<String, String> query,
-  // }) async {
-  //   Uri uri = Uri.https(_baseUrl, endpoint, query);
-  //   final response = await http.get(uri, headers: _headers);
-  //   if (response.statusCode == 200) {
-  //     // If server returns an OK response, parse the JSON.
-  //     return json.decode(response.body);
-  //   } else {
-  //     // If that response was not OK, throw an error.
-  //     throw Exception('Failed to load json data');
-  //   }
-  // }
-
   Future<String> getCountryData(String countryCode) async {
-    // var now = new DateTime.now();
-    // var formatter = new DateFormat('yyyy-MM-dd');
-    // String formattedDate = formatter.format(now);
-
-    // var query = {"code": countryCode, "date": formattedDate};
-
     Response response = await http.get(
         "https://corona.lmao.ninja/v2/countries/$countryCode?yesterday&strict&query");
 
@@ -62,7 +31,6 @@ class _ChatScreenState extends State<ChatScreen> {
     String recoveredCases = res['recovered'].toString();
     String totalDeaths = res['deaths'].toString();
     String currentActive = res['active'].toString();
-    // String totalTests = res['tests'].toString();
 
     String todayCases = res['todayCases'].toString();
     String todayRecovered = res['todayRecovered'].toString();

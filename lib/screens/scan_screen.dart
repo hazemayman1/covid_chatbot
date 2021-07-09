@@ -62,16 +62,6 @@ class _ScanScreenState extends State<ScanScreen> {
                 setState(() {
                   uploaded = Image.file(File(_imageFile.path));
                 });
-
-                // http.MultipartRequest request = http.MultipartRequest('POST', Uri.parse(url));
-
-                //   request.files.add(
-                //     await http.MultipartFile.fromPath(
-                //       'images',
-                //       File('kitten1.jpg').path,
-                //       contentType: MediaType('application', 'jpeg'),
-                //     ),
-                //   );
               },
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.8,

@@ -730,11 +730,13 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
                           print(respone);
                           if (respone['result'] == 0) {
                             this.setState(() {
-                              classification = "You dont have covid";
+                              classification =
+                                  "Your results seem fine, but still we advise you to consult your medical expert";
                             });
                           } else if (respone['result'] == 1) {
                             this.setState(() {
-                              classification = "You have covid";
+                              classification =
+                                  "Your results show that you may suffer from COVID-19, make sure to consult a doctor ASAP";
                             });
                           }
                         }
